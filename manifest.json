@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Time On This",
+  "description": "Time you have spent on this Page and other details.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+	"tabs",
+    "https://ajax.googleapis.com/"
+  ],
+  "background": {
+   "scripts": ["background.js"]
+  }
+}
