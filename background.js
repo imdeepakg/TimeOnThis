@@ -10,7 +10,7 @@ var updateIntervalInSec = 10;
 var red = [237,28,36,255];
 var green = [181,230,29,255];
 var blue = [0,162,232,255];
-var debug = false;
+var debug = true;
 
 //function debug(msg) { variable and functions name cannot be same.
 function debugMessage(msg) {
@@ -258,6 +258,7 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 			{
 				debugMessage("windows lost focus, Update last tab data.");
 				lastTabData.UpdatePageAndSiteTimeTillNow();
+				lastTabData.LastStartTime = new Date();
 			}
 		}
 		currentActiveWindowId = null;
@@ -266,7 +267,10 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 	else {
 		debugMessage("current active window id " + windowId);
 		currentActiveWindowId = windowId;
-		getCurrentTabId(function (tabId) {currentActiveTabId = tabId;});
+		getCurrentTabId(function (tabId) {
+			currentActiveTabId = tabId;
+			
+		});
 	}
 });
 
